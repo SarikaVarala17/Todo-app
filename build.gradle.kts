@@ -1,4 +1,3 @@
-
 plugins {
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.ktor)
@@ -35,7 +34,18 @@ dependencies {
     implementation(libs.logback.classic)
     implementation(libs.ktor.server.config.yaml)
     testImplementation(libs.ktor.server.test.host)
-    testImplementation(libs.kotlin.test.junit)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.mockk)
+    testImplementation(libs.junitApi)
+    testImplementation(libs.junitEngine)
+    testImplementation(libs.kotlinxSerializationJson)
+    testImplementation(libs.kotlinTestJUnit5)
     implementation(libs.dagger)
     kapt(libs.dagger.compiler)
+
+}
+tasks.test {
+    useJUnitPlatform()
+    jvmArgs = listOf("-XX:+EnableDynamicAgentLoading")
+
 }
