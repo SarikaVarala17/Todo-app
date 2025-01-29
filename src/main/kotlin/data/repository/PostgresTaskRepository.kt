@@ -7,8 +7,9 @@ import org.example.data.db.TaskTable
 import org.example.data.db.suspendTransaction
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
+import javax.inject.Inject
 
-class PostgresTaskRepository : TaskRepository {
+class PostgresTaskRepository @Inject constructor() : TaskRepository {
     override suspend fun allTasks(): List<Task> = suspendTransaction {
         TaskTable.selectAll().map {
             Task(

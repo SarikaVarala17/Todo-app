@@ -42,6 +42,10 @@ dependencies {
     testImplementation(libs.kotlinTestJUnit5)
     implementation(libs.dagger)
     kapt(libs.dagger.compiler)
+    implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation("com.google.dagger:dagger:2.52")
+
+    kapt("com.google.dagger:dagger-compiler:2.52")
 
 }
 tasks.test {
