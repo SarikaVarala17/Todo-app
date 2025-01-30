@@ -7,7 +7,7 @@ import org.example.http.HttpModule
 import org.example.data.di.AppModule
 
 @Singleton
-@Component(modules = [HttpModule::class, AppModule::class])
+@Component(modules = [HttpModule::class])
 interface AppComponent {
-    fun httpComponent(): HttpComponent
+
 }
